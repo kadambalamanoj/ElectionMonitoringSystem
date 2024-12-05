@@ -5,71 +5,91 @@ import java.time.LocalDateTime;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="admin_table")
 public class Admin 
 {
-	   @Id
-	    private String aadhaar;
-	    private String name;
-	    private String email;
-	    private String password;
-	    private String phoneNumber;
-	    private String location;
-	    @Column(name = "created_at")
-	    private LocalDateTime createdAt;
-	    @Column(name = "approver_permissions")
-	    private boolean approverPermissions;
-		
-		
-		public String getName() {
-			return name;
-		}
-		public void setName(String name) {
-			this.name = name;
-		}
-		public String getEmail() {
-			return email;
-		}
-		public void setEmail(String email) {
-			this.email = email;
-		}
-		public String getPassword() {
-			return password;
-		}
-		public void setPassword(String password) {
-			this.password = password;
-		}
-		public String getPhoneNumber() {
-			return phoneNumber;
-		}
-		public void setPhoneNumber(String phoneNumber) {
-			this.phoneNumber = phoneNumber;
-		}
-		public String getLocation() {
-			return location;
-		}
-		public void setLocation(String location) {
-			this.location = location;
-		}
-		public LocalDateTime getCreatedAt() {
-			return createdAt;
-		}
-		public void setCreatedAt(LocalDateTime createdAt) {
-			this.createdAt = createdAt;
-		}
-		public boolean isApproverPermissions() {
-			return approverPermissions;
-		}
-		public void setApproverPermissions(boolean approverPermissions) {
-			this.approverPermissions = approverPermissions;
-		}
-		public String getAadhaar() {
-			return aadhaar;
-		}
-		public void setAadhaar(String aadhaar) {
-			this.aadhaar = aadhaar;
-		}
+	@Id
+	private String aadhaar;
+    private String name;
+    private int age;
+    private String gender;
+    private String phoneno;
+    private String email;
+    private String place;
+    private String password;
+    private String imageName;
+    private String imageType;
+    @Lob
+    private byte[] imageDate;
+	public String getAadhaar() {
+		return aadhaar;
+	}
+	public void setAadhaar(String aadhaar) {
+		this.aadhaar = aadhaar;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public String getPhoneno() {
+		return phoneno;
+	}
+	public void setPhoneno(String phoneno) {
+		this.phoneno = phoneno;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getImageName() {
+		return imageName;
+	}
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+	public String getImageType() {
+		return imageType;
+	}
+	public void setImageType(String imageType) {
+		this.imageType = imageType;
+	}
+	public byte[] getImageDate() {
+		return imageDate;
+	}
+	public void setImageDate(byte[] imageDate) {
+		this.imageDate = imageDate;
+	}
+
 }
