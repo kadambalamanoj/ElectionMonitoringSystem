@@ -330,13 +330,91 @@ nav a:hover {
             </button>
             <!-- Register Button -->
             <div class="mt-4 text-center">
-                <p class="text-sm text-white">Don't have an account? <a href="register.jsp" class="text-sm text-green-400 hover:text-blue-600 font-bold">Register</a></p>
+                <p class="text-sm text-white">Don't have an account?   <a href="javascript:void(0);" onclick="openRegisterModal()" class="bg-white border border-gray-300 rounded-full px-4 py-2 text-blue-500 hover:bg-blue-500 hover:text-white">Register</a>
+
             </div>
         </form>
     </div>
 </div>
 
-    
+
+
+
+<div id="RegisterModal" class="fixed inset-0 bg-gray-500 bg-opacity-75 flex justify-center items-center z-50 hidden">
+    <div class="bg-gradient-to-r from-purple-400 to-blue-500 shadow-lg rounded-xl w-full max-w-lg max-h-[90vh] overflow-y-auto px-6 py-4 text-white">
+        <button onclick="closeRegisterModal()" class="absolute top-4 right-4 text-gray-300 text-2xl">&times;</button>
+        <h2 class="text-2xl font-bold text-center mb-4">Register</h2>
+        <form action="insertuser" method="POST" class="space-y-4">
+        
+            <!-- Name -->
+            <div>
+                <label for="name" class="block text-sm font-semibold mb-1">Name</label>
+                <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+            </div>
+            
+            <!-- Age -->
+            <div>
+                <label for="age" class="block text-sm font-semibold mb-1">Age</label>
+                <input type="number" id="age" name="age" class="w-full px-4 py-2 border rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+            </div>
+            
+            <!-- Gender -->
+            <div>
+                <label class="block text-sm font-bold mb-1" for="gender">Gender</label>
+                <select id="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" required>
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            
+            <!-- Aadhaar Number -->
+            <div>
+                <label for="aadhaar" class="block text-sm font-semibold mb-1">Aadhaar Number</label>
+                <input type="text" id="aadhaar" name="aadhaar" class="w-full px-4 py-2 border rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+            </div>
+            
+            <!-- Phone Number -->
+            <div>
+                <label class="block text-sm font-bold mb-1" for="phoneNo">Phone Number</label>
+                <input type="text" id="phoneNo" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-900 leading-tight focus:outline-none focus:shadow-outline" required />
+            </div>
+            
+            <!-- Place -->
+            <div>
+                <label for="place" class="block text-sm font-semibold mb-1">Place</label>
+                <input type="text" id="place" name="place" class="w-full px-4 py-2 border rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+            </div>
+            
+            <!-- Password -->
+            <div>
+                <label for="password" class="block text-sm font-semibold mb-1">Password</label>
+                <input type="password" id="password" name="password" class="w-full px-4 py-2 border rounded-md bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-400" required />
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Register
+            </button>
+
+            <!-- Register Button -->
+            <div class="mt-4 text-center">
+                <p class="text-sm text-white">
+                    <a href="javascript:void(0);" onclick="openSignInModal(); closeRegisterModal();" class="bg-white border border-gray-300 rounded-full px-4 py-2 text-blue-500 hover:bg-blue-500 hover:text-white">Back to Sign in</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 </body>
 <script>
 //Smooth scrolling effect
@@ -356,6 +434,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     // Function to open the Sign-In modal
     function openSignInModal() {
         document.getElementById('signinModal').classList.remove('hidden');
+        document.getElementById('RegisterModal').classList.add('hidden'); // Hide Register modal
+
     }
 
     // Function to close the Sign-In modal
@@ -372,14 +452,33 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
 
     // Close the modal when clicking on the background
-    window.onclick = function(event) {
+    /* window.onclick = function(event) {
         var modal = document.getElementById('signinModal');
         if (event.target === modal) {
             closeSignInModal();
         }
+    } */
+    window.onclick = function(event) {
+    	  var signinModal = document.getElementById('signinModal');
+    	  var registerModal = document.getElementById('RegisterModal');
+    	  if (event.target === signinModal || event.target === registerModal) {
+    	    closeSignInModal();
+    	    closeRegisterModal();
+    	  }
+    	}
+    function openRegisterModal() {
+        document.getElementById('RegisterModal').classList.remove('hidden');
+    }
+    function closeRegisterModal() {
+        document.getElementById('RegisterModal').classList.add('hidden');
+    }
+    window.onclick = function(event) {
+        var modal = document.getElementById('RegisterModal');
+        if (event.target === modal) {
+        	closeRegisterModal();
+        }
     }
 </script>
  <div>
- <h2> I am Manoj</h2>
  </div>
 </html>

@@ -47,7 +47,7 @@ public class SuperAdminController
     	ModelAndView mv = new ModelAndView();
         
         String aadhaar= request.getParameter("aadhaar");
-        String apwd = request.getParameter("apwd");
+        String apwd = request.getParameter("password");
         String role=request.getParameter("role");
         SuperAdmin superadmin = superadminservice.checksuperadminlogin(aadhaar, apwd,role);
         
