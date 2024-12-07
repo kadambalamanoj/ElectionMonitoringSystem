@@ -1,19 +1,21 @@
 package com.sai.jfsd.EMS.model;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Lob;
 import jakarta.persistence.Table;
-
 @Entity
 @Table(name="admin_table")
 public class Admin 
 {
-	@Id
-	private String aadhaar;
+     @Id
+	@Column(unique = true,length = 12)
+	private long aadhaar;
     private String name;
     private int age;
     private String gender;
@@ -21,14 +23,13 @@ public class Admin
     private String email;
     private String place;
     private String password;
-    private String imageName;
-    private String imageType;
-    @Lob
-    private byte[] imageDate;
-	public String getAadhaar() {
+	private String dateofbirth;
+
+    private Blob image;
+	public long getAadhaar() {
 		return aadhaar;
 	}
-	public void setAadhaar(String aadhaar) {
+	public void setAadhaar(long aadhaar) {
 		this.aadhaar = aadhaar;
 	}
 	public String getName() {
@@ -73,23 +74,17 @@ public class Admin
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getImageName() {
-		return imageName;
+	public Blob getImage() {
+		return image;
 	}
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
+	public void setImage(Blob image) {
+		this.image = image;
 	}
-	public String getImageType() {
-		return imageType;
+	public String getDateofbirth() {
+		return dateofbirth;
 	}
-	public void setImageType(String imageType) {
-		this.imageType = imageType;
+	public void setDateofbirth(String dateofbirth) {
+		this.dateofbirth = dateofbirth;
 	}
-	public byte[] getImageDate() {
-		return imageDate;
-	}
-	public void setImageDate(byte[] imageDate) {
-		this.imageDate = imageDate;
-	}
-
+	
 }

@@ -38,6 +38,9 @@ nav a:hover {
             <a href="#about" class="text-blue-500 cursor-pointer">About Us</a>
             <a href="#our-team" class="text-blue-500 cursor-pointer">Our Team</a>
             <a href="#feedback" class="text-blue-500 cursor-pointer">Feedback</a>
+            <a href="dash.jsp" class="text-blue-500 cursor-pointer">DASHBOARD</a>
+           <a href="map.jsp" class="text-blue-500 cursor-pointer">MAP</a>
+            
         </nav>
         <div class="flex items-center space-x-4">
             <!-- Modify the button to link to the signin.jsp -->
